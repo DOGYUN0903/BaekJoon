@@ -5,15 +5,12 @@ public class Main{
         Scanner sc = new Scanner(System.in);
         int A = sc.nextInt();
         int B = sc.nextInt();
-        
-        if(A>B){
+        if (A>B){
             System.out.println(">");
         }else if(A<B){
             System.out.println("<");
-        }else{
+        }else {
             System.out.println("==");
         }
-            
-        
     }
 }
