@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class Main{
     public static void main(String[] args){
@@ -6,10 +6,11 @@ public class Main{
         int A = sc.nextInt();
         int B = sc.nextInt();
         int C = sc.nextInt();
+        
         System.out.println((A+B)%C);
-        System.out.println(((A%C)+(B%C))%C);
+        System.out.println(((A%C) + (B%C))%C);
         System.out.println((A*B)%C);
-        System.out.println(((A%C)*(B%C))%C);
+        System.out.println(((A%C) * (B%C))%C);
         
     }
 }
