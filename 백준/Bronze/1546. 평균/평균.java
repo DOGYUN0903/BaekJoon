@@ -1,26 +1,21 @@
 import java.util.*;
 
-public class Main{
+public class Main {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();
-        List<Double> list = new ArrayList<>();
+        int[] score = new int[N];
         for(int i = 0; i < N; i++){
-            list.add(sc.nextDouble());
+            score[i] = sc.nextInt();
         }
-        double M = list.get(0);
-        for(int i = 0; i < N; i++){
-            if(list.get(i) > M){
-                M = list.get(i);
-            }
-        }
-        for(int i = 0; i < N; i++){
-            list.set(i, list.get(i) / M * 100);
-        }
+        Arrays.sort(score);
+        int M = score[N-1]; // 최고 점수
+
         double sum = 0;
-        for(int i = 0; i < N; i++){
-            sum += list.get(i);
+        for (int i = 0; i < N; i++){
+            sum += ((double)score[i] / M) * 100; // 비율 계산
         }
+
         double avg = sum / N;
         System.out.println(avg);
     }
