@@ -11,7 +11,7 @@ public class Main {
         for (int i = 0; i < arr.length; i++) {
             arr[i] = 0;
         }
-        String num = sum + "";
+        String num = String.valueOf(sum);
         char[] ch = num.toCharArray();
 
         for (int i = 0; i < ch.length; i++) {
