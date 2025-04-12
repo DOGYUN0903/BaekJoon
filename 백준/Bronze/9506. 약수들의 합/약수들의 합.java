@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -6,23 +6,30 @@ public class Main {
 
         while (true) {
             int n = sc.nextInt();
-            if (n == -1) break;
 
+            if (n == -1) {
+                break;
+            }
+
+            List<Integer> list = new ArrayList<>();
             int sum = 0;
-            StringBuilder sb = new StringBuilder();
-            
-            for (int i = 1; i < n; i++) {
+
+            for (int i = 1; i <= n/2; i++) {
                 if (n % i == 0) {
+                    list.add(i);
                     sum += i;
-                    if (sb.length() > 0) {
-                        sb.append(" + ");
-                    }
-                    sb.append(i);
                 }
             }
 
             if (sum == n) {
-                System.out.println(n + " = " + sb);
+                System.out.print(n + " = ");
+                for (int i = 0; i < list.size(); i++) {
+                    System.out.print(list.get(i));
+                    if (i < list.size() - 1) {
+                        System.out.print(" + ");
+                    }
+                }
+                System.out.println();
             } else {
                 System.out.println(n + " is NOT perfect.");
             }
