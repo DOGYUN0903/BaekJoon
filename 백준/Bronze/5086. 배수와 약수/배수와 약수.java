@@ -1,26 +1,26 @@
-import java.util.*;
+import java.util.Scanner;
 
-public class Main{
-    public static void main(String[] args){
+public class Main {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        
-        while(true){
-            int a = sc.nextInt();
-            int b = sc.nextInt();
-            
-            if(a == 0 && b == 0){
+
+
+        while (true) {
+            int A = sc.nextInt();
+            int B = sc.nextInt();
+
+            if (A == 0 && B == 0) {
                 break;
             }
-            
-            if(b%a == 0){
+
+            if (B % A == 0) {
                 System.out.println("factor");
-            } else if(a%b == 0){
+            } else if (A % B == 0) {
                 System.out.println("multiple");
-            } else{
+            } else {
                 System.out.println("neither");
             }
         }
-        
-        sc.close();
+
     }
 }
