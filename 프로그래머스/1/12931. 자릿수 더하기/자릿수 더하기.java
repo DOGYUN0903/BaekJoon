@@ -3,10 +3,9 @@ import java.util.*;
 public class Solution {
     public int solution(int n) {
         int answer = 0;
-        String a = String.valueOf(n);
-        char[] array = a.toCharArray();
-        for(int i = 0; i < array.length; i++){
-            answer += array[i] - '0';
+        while(n > 0){
+            answer += n % 10;
+            n = n / 10;
         }
 
         return answer;
