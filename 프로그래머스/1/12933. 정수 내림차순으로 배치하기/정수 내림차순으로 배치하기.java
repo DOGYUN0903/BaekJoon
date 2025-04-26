@@ -1,16 +1,14 @@
 import java.util.*;
 
-public class Solution {
+class Solution {
     public long solution(long n) {
-        String[] digits = String.valueOf(n).split("");
-
-        Arrays.sort(digits, Collections.reverseOrder());
-
-        StringBuilder sb = new StringBuilder();
-        for (String digit : digits) {
-            sb.append(digit);
+        String str = Long.toString(n);
+        char[] ch = str.toCharArray();
+        Arrays.sort(ch);
+        String strNum = "";
+        for(int i = 0; i < ch.length; i++){
+            strNum += String.valueOf(ch[ch.length - 1 - i]);
         }
-
-        return Long.parseLong(sb.toString());
+        return Long.parseLong(strNum);
     }
 }
