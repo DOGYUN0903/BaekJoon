@@ -2,13 +2,12 @@ import java.util.*;
 
 class Solution {
     public String solution(String s) {
-        char[] chars = s.toCharArray();
-        Arrays.sort(chars);
-        
-        StringBuilder sb = new StringBuilder();
-        for(int i = chars.length - 1; i >= 0; i--){
-            sb.append(chars[i]);
+        String answer = "";
+        char[] ch = s.toCharArray();
+        Arrays.sort(ch);
+        for(int i = 0; i < ch.length; i++){
+            answer += String.valueOf(ch[ch.length - 1 - i]);
         }
-        return sb.toString();
+        return answer;
     }
 }
