@@ -6,19 +6,16 @@ class Solution {
             newFood[i] = food[i+1] / 2;
         }
         
-        String front = "";
+        StringBuilder sb = new StringBuilder();
         for(int j = 1; j <= newFood.length; j++){
             for(int m = 0; m < newFood[j - 1]; m++){
-                front+= String.valueOf(j);
+                sb.append(j);
             }
         }
         
-        String back = "";
-        for(int k = front.length() - 1; k >= 0; k--){
-            back += front.charAt(k);
-        }
+        StringBuilder sbReverse = new StringBuilder(sb).reverse();
         
-        answer = front + "0" + back;
+        answer = sb.toString() + "0" + sbReverse.toString();
         
         return answer;
     }
