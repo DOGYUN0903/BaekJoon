@@ -2,13 +2,14 @@ import java.util.*;
 
 class Solution {
     public long solution(long n) {
-        String str = Long.toString(n);
-        char[] ch = str.toCharArray();
-        Arrays.sort(ch);
-        String strNum = "";
-        for(int i = 0; i < ch.length; i++){
-            strNum += String.valueOf(ch[ch.length - 1 - i]);
+        String strNum = String.valueOf(n);
+        char[] chNums = strNum.toCharArray();
+        Arrays.sort(chNums);
+        String result = "";
+        for(int i = chNums.length-1; i >= 0; i--){
+            result += chNums[i];
         }
-        return Long.parseLong(strNum);
+        
+        return Long.parseLong(result);
     }
 }
