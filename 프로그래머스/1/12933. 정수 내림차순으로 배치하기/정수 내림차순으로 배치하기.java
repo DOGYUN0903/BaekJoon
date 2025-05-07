@@ -7,7 +7,7 @@ class Solution {
         Arrays.sort(chNums);
         String result = "";
         for(int i = chNums.length-1; i >= 0; i--){
-            result += chNums[i];
+            result += chNums[i] + "";
         }
         
         return Long.parseLong(result);
