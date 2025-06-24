@@ -2,17 +2,18 @@ import java.util.*;
 
 class Solution {
     public int[] solution(int n) {
-        ArrayList<Integer> list = new ArrayList<>();
+        List<Integer> lists = new ArrayList<>();
         for(int i = 1; i <= n; i++){
-            if (i % 2 == 1){
-                list.add(i);
+            if (i % 2 != 0){
+                lists.add(i);
             }
         }
-        
-        int[] answer = new int[list.size()];
+        int[] answer = new int[lists.size()];
         for(int i = 0; i < answer.length; i++){
-            answer[i] = list.get(i);
+            answer[i] = lists.get(i);
         }
+        
+        Arrays.sort(answer);
         return answer;
     }
 }
