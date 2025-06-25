@@ -1,9 +1,9 @@
 class Solution {
     public int solution(int[] box, int n) {
-        int answer = 1;
-        for(int i = 0; i < 3; i++){
-            answer *= box[i]/n;
-        }
-        return answer;
+        int answer = 0;
+        int x = box[0] / n;
+        int y = box[1] / n;
+        int z = box[2] / n;
+        return x*y*z;
     }
 }
