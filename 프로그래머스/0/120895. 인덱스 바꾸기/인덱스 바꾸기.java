@@ -1,13 +1,18 @@
 class Solution {
     public String solution(String my_string, int num1, int num2) {
-        StringBuilder sb = new StringBuilder(my_string);
+        String answer = "";
+        char[] ch = my_string.toCharArray();
         
-        char ch1 = sb.charAt(num1);
-        char ch2 = sb.charAt(num2);
+        for(int i = 0; i < ch.length; i++){
+            if (i == num1){
+                answer += ch[num2];
+            } else if(i == num2){
+                answer += ch[num1];
+            } else {
+                answer += ch[i];
+            }
+        }
         
-        sb.setCharAt(num1, ch2);
-        sb.setCharAt(num2, ch1);
-        
-        return sb.toString();
+        return answer;
     }
 }
