@@ -2,16 +2,15 @@ import java.util.*;
 
 class Solution {
     public int[] solution(int start_num, int end_num) {
-        List<Integer> list = new ArrayList<>();
+        List<Integer> lists = new ArrayList<>();
         for(int i = start_num; i >= end_num; i--){
-            list.add(i);
+            lists.add(i);
         }
         
-        int[] answer = new int[list.size()];
+        int[] answer = new int[lists.size()];
         for(int i = 0; i < answer.length; i++){
-            answer[i] = list.get(i);
+            answer[i] = lists.get(i);
         }
-        
         return answer;
     }
 }
