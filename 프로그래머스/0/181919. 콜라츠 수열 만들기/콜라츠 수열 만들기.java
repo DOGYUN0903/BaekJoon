@@ -2,23 +2,22 @@ import java.util.*;
 
 class Solution {
     public int[] solution(int n) {
-        List<Integer> list = new ArrayList<>();
-        list.add(n);
-        while(n > 1){
-            if(n % 2 == 0){
-                n = n / 2;
-                list.add(n);
-            } else{
+        List<Integer> lists = new ArrayList<>();
+        lists.add(n);
+        while (n > 1){
+            if (n % 2 == 0){
+                n /= 2;
+                lists.add(n);
+            } else {
                 n = 3 * n + 1;
-                list.add(n);
-            }
+                lists.add(n);
+            } 
         }
         
-        int[] answer = new int[list.size()];
+        int[] answer = new int[lists.size()];
         for(int i = 0; i < answer.length; i++){
-            answer[i] = list.get(i);
+            answer[i] = lists.get(i);
         }
-        
         return answer;
     }
 }
