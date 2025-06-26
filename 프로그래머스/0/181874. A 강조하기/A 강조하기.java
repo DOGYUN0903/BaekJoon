@@ -2,14 +2,13 @@ class Solution {
     public String solution(String myString) {
         StringBuilder sb = new StringBuilder();
         
-        for(char ch : myString.toCharArray()){
-            if(ch == 'a' || ch == 'A'){
+        for (char c : myString.toCharArray()){
+            if (c == 'a' || c == 'A'){
                 sb.append('A');
-            } else{
-                sb.append(Character.toLowerCase(ch));
+            } else {
+                sb.append(Character.toLowerCase(c));
             }
         }
-        
         return sb.toString();
     }
 }
