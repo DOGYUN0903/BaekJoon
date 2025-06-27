@@ -1,19 +1,21 @@
 class Solution {
     public int[] solution(int[] arr, int n) {
         int[] answer = new int[arr.length];
-        if(arr.length % 2 == 0){
-            for(int i = 1; i < arr.length; i = i + 2){
-                answer[i] = arr[i] + n;
-            }
-            for(int j = 0; j < arr.length; j = j + 2){
-                answer[j] = arr[j];
+        if (arr.length % 2 == 0){
+            for(int i = 0; i < answer.length; i++){
+                if (i % 2 == 0){
+                    answer[i] = arr[i];
+                } else {
+                    answer[i] = n + arr[i];
+                }
             }
         } else {
-            for(int i = 0; i < arr.length; i = i + 2){
-                answer[i] = arr[i] + n;
-            }
-            for(int j = 1; j < arr.length; j = j + 2){
-                answer[j] = arr[j];
+            for (int i = 0; i < answer.length; i++){
+                if (i % 2 == 0){
+                    answer[i] = n + arr[i];
+                } else {
+                    answer[i] = arr[i];
+                }
             }
         }
         return answer;
