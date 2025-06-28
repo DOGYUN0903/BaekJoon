@@ -2,15 +2,19 @@ import java.util.*;
 
 class Solution {
     public String[] solution(String my_string) {
-        String[] temp = my_string.split(" ");
-        ArrayList<String> list = new ArrayList<>();
-
-        for (String str : temp) {
-            if (!str.equals("")) {
-                list.add(str);
+        String[] words = my_string.split(" ");
+        List<String> lists = new ArrayList<>();        
+        
+        for (int i = 0; i< words.length; i++){
+            if (words[i].length() != 0){
+                lists.add(words[i]);
             }
         }
-
-        return list.toArray(new String[0]);
+        
+        String[] answer = new String[lists.size()];
+        for(int i = 0; i < answer.length; i++){
+            answer[i] = lists.get(i);
+        }
+        return answer;
     }
 }
