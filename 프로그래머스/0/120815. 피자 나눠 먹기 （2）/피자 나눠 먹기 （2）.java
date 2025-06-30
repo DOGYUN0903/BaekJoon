@@ -1,11 +1,14 @@
 class Solution {
     public int solution(int n) {
-        int answer = 1;
-        while(true){
-            if((answer*6) % n == 0){
-                return answer;
-            }
-            answer++;
+        return n / gcd(6 , n);
+    }
+    
+    static int gcd(int a, int b){
+        while (b != 0){
+            int r = a % b;
+            a = b;
+            b = r;
         }
+        return a;
     }
 }
