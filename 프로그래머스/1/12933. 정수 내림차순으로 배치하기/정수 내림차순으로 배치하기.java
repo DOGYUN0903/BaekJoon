@@ -2,14 +2,14 @@ import java.util.*;
 
 class Solution {
     public long solution(long n) {
-        String strNum = String.valueOf(n);
-        char[] chNums = strNum.toCharArray();
-        Arrays.sort(chNums);
-        String result = "";
-        for(int i = chNums.length-1; i >= 0; i--){
-            result += chNums[i] + "";
+        long answer = 0;
+        String num = String.valueOf(n);
+        char[] numChar = num.toCharArray();
+        Arrays.sort(numChar);
+        String newNum = "";
+        for(int i = 0; i < numChar.length; i++){
+            newNum += numChar[numChar.length - 1 - i];
         }
-        
-        return Long.parseLong(result);
+        return Long.parseLong(newNum);
     }
 }
