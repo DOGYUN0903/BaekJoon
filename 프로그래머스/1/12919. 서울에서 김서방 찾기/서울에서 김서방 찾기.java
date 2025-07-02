@@ -1,10 +1,11 @@
 class Solution {
     public String solution(String[] seoul) {
-        for(int i = 0; i < seoul.length; i++){
-            if(seoul[i].contains("Kim")){
-                return "김서방은 " + i +"에 있다";
+        int idx = 0;
+        for (int i = 0; i < seoul.length; i++){
+            if (seoul[i].equals("Kim")){
+                idx = i;
             }
         }
-        return "";
+        return "김서방은 " + idx +"에 있다";
     }
 }
