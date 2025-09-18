@@ -1,11 +1,14 @@
+import java.util.*;
+
 class Solution {
     public int solution(int n) {
-        int answer = 0;
+        List<Integer> nums = new ArrayList<>();
         for (int i = 1; i <= n; i++){
             if (n % i == 0){
-                answer++;
+                nums.add(i);
             }
         }
-        return answer;
+        
+        return nums.size();
     }
 }
