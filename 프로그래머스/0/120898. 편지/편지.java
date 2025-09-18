@@ -1,5 +1,5 @@
 class Solution {
     public int solution(String message) {
-        return message.length() * 2;
+        return 2 * message.length();
     }
 }
