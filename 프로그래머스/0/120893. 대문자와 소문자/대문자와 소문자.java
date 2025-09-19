@@ -1,14 +1,14 @@
 class Solution {
     public String solution(String my_string) {
-        String answer = "";
+        StringBuilder sb = new StringBuilder();
+        
         for(int i = 0; i < my_string.length(); i++){
-            char c = my_string.charAt(i);
-            if (c >= 'a' && c <= 'z'){
-                answer += Character.toUpperCase(c);
+            if (Character.isUpperCase(my_string.charAt(i))){
+                sb.append(Character.toLowerCase(my_string.charAt(i)));
             } else {
-                answer += Character.toLowerCase(c);
+                sb.append(Character.toUpperCase(my_string.charAt(i)));
             }
         }
-        return answer;
+        return sb.toString();
     }
 }
