@@ -1,18 +1,10 @@
 class Solution {
     public String solution(String my_string, int num1, int num2) {
-        String answer = "";
-        char[] ch = my_string.toCharArray();
+        char[] arr = my_string.toCharArray();
         
-        for(int i = 0; i < ch.length; i++){
-            if (i == num1){
-                answer += ch[num2];
-            } else if(i == num2){
-                answer += ch[num1];
-            } else {
-                answer += ch[i];
-            }
-        }
+        arr[num1] = my_string.charAt(num2);
+        arr[num2] = my_string.charAt(num1);
         
-        return answer;
+        return String.valueOf(arr);
     }
 }
