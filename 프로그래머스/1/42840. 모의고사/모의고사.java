@@ -1,32 +1,46 @@
+import java.util.List;
+import java.util.ArrayList;
+
 class Solution {
     public int[] solution(int[] answers) {
-        int[] arr1 = {1,2,3,4,5};
-        int[] arr2 = {2,1,2,3,2,4,2,5};
-        int[] arr3 = {3,3,1,1,2,2,4,4,5,5};
-        int count1 = 0;
-        int count2 = 0;
-        int count3 = 0;
-        for(int i = 0; i < answers.length; i++){
-            if(answers[i] == arr1[i % arr1.length]) count1++;
-            if(answers[i] == arr2[i % arr2.length]) count2++;
-            if(answers[i] == arr3[i % arr3.length]) count3++;
+        
+        int[] num1 = {1,2,3,4,5};
+        int[] num2 = {2,1,2,3,2,4,2,5};
+        int[] num3 = {3,3,1,1,2,2,4,4,5,5};
+        
+        int[] scores = new int[3];
+        
+        for (int i = 0; i < answers.length; i++){
+            if(answers[i] == num1[i % num1.length]) {
+                scores[0]++;
+            }
+            
+            if(answers[i] == num2[i % num2.length]) {
+                scores[1]++;
+            }
+            
+            if(answers[i] == num3[i % num3.length]) {
+                scores[2]++;
+            }
         }
         
-        int max = count1;
-        if (count2 > max) max = count2;
-        if (count3 > max) max = count3;
+        int high = 0;
+        for (int score : scores){
+            high = Math.max(high, score);
+        }
         
-        int maxSize = 0;
-        if (count1 == max) maxSize++;
-        if (count2 == max) maxSize++;
-        if (count3 == max) maxSize++;
+        List<Integer> lists = new ArrayList<>();
         
-        int[] answer = new int[maxSize];
-        int index = 0;
-        if (count1 == max) answer[index++] = 1;
-        if (count2 == max) answer[index++] = 2;
-        if (count3 == max) answer[index++] = 3;
-        
+        for (int i = 0; i < scores.length; i++){
+            if (scores[i] == high){
+                lists.add(i + 1);
+            }
+        }
+    
+        int[] answer = new int[lists.size()];
+        for (int i = 0; i < answer.length; i++){
+            answer[i] = lists.get(i);
+        }
         return answer;
     }
 }
