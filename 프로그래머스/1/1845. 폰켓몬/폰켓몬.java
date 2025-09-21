@@ -1,15 +1,14 @@
-import java.util.*;
+import java.util.Set;
+import java.util.HashSet;
 
 class Solution {
     public int solution(int[] nums) {
+        Set<Integer> set = new HashSet<>();
         
-        int len = nums.length / 2;
-        Set<Integer> poketmon = new HashSet<>();
-        
-        for(int i = 0; i < nums.length; i++){
-            poketmon.add(nums[i]);
+        for (Integer num : nums){
+            set.add(num);
         }
         
-        return Math.min(poketmon.size(), len);
+        return Math.min(nums.length / 2, set.size());
     }
 }
