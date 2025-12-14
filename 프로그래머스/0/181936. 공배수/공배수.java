@@ -3,10 +3,9 @@ class Solution {
         int answer = 0;
         if (number % n == 0){
             if (number % m == 0){
-                answer = 1;
-            } else {
-                answer = 0;
+                return 1;
             }
+            return 0;
         }
         return answer;
     }
