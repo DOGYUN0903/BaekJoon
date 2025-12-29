@@ -1,15 +1,15 @@
 class Solution {
     public long solution(int price, int money, int count) {
-        long sum = 0;
-        for(int i = 1; i <= count; i++){
-            sum += i * price;
-        }
-        long answer = sum - money;
+        long answer = 0;
         
-        if(sum > money){
-            return answer;
-        } else{
+        for (int i = 1; i <= count; i++){
+            answer = answer + price * i;
+        }
+
+        if ((long) answer - money <= 0) {
             return 0;
         }
+        
+        return (long) answer - money;
     }
 }
