@@ -1,15 +1,16 @@
-import java.util.*;
+import java.util.Arrays;
 
 class Solution {
     public long solution(long n) {
-        long answer = 0;
-        String num = String.valueOf(n);
-        char[] numChar = num.toCharArray();
-        Arrays.sort(numChar);
-        String newNum = "";
-        for(int i = 0; i < numChar.length; i++){
-            newNum += numChar[numChar.length - 1 - i];
-        }
-        return Long.parseLong(newNum);
+        String str = String.valueOf(n);
+        
+        char[] arr = str.toCharArray();
+        
+        Arrays.sort(arr);
+        
+        StringBuilder sb = new StringBuilder(new String(arr));
+        sb.reverse();
+        
+        return Long.parseLong(sb.toString());
     }
 }
