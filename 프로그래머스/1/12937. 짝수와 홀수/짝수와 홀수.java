@@ -1,11 +1,13 @@
 class Solution {
     public String solution(int num) {
-        String answer = "";
+        StringBuilder sb = new StringBuilder();
+        
         if (num % 2 == 0){
-            answer = "Even";
+            sb.append("Even");
         } else {
-            answer = "Odd";
+            sb.append("Odd");
         }
-        return answer;
+        
+        return sb.toString();
     }
 }
