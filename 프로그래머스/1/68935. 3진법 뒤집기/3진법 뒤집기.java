@@ -1,21 +1,9 @@
 class Solution {
     public int solution(int n) {
-        String answer = "";
+        String base3 = Integer.toString(n, 3);
         
-        while (n > 0) {
-            answer += (n % 3); //0021
-            n /= 3;
-        }
-
-        int result = 0;
-        int power = 1; 
-
-        for (int i = answer.length() - 1; i >= 0; i--) {
-            int digit = answer.charAt(i) - '0';
-            result += digit * power;
-            power *= 3;
-        }
-
-        return result;
+        String reversed = new StringBuilder(base3).reverse().toString();
+        
+        return Integer.parseInt(reversed, 3);
     }
 }
