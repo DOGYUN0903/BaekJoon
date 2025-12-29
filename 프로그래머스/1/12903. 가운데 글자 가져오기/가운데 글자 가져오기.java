@@ -1,11 +1,13 @@
 class Solution {
     public String solution(String s) {
-        String answer = "";
-        if(s.length() % 2 == 0){
-            answer = s.substring(s.length() / 2 - 1, s.length() / 2 + 1);
-        } else{
-            answer = String.valueOf(s.charAt((s.length() - 1) / 2));
+        StringBuilder sb = new StringBuilder();
+        char[] arr = s.toCharArray();
+        if (s.length() % 2 == 0){
+            sb.append(arr[arr.length / 2 - 1]);
+            sb.append(arr[arr.length / 2]);
+        } else {
+            sb.append(arr[(arr.length - 1 ) / 2]);
         }
-        return answer;
+        return sb.toString();
     }
 }
