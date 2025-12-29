@@ -1,11 +1,16 @@
 class Solution {
     public String solution(String[] seoul) {
+        StringBuilder sb = new StringBuilder();
         int idx = 0;
+        
         for (int i = 0; i < seoul.length; i++){
             if (seoul[i].equals("Kim")){
                 idx = i;
             }
         }
-        return "김서방은 " + idx +"에 있다";
+        
+        sb.append("김서방은 " + idx + "에 있다");
+        
+        return sb.toString();
     }
 }
