@@ -1,11 +1,12 @@
 import java.util.Set;
 import java.util.HashSet;
 
+
 class Solution {
     public int solution(int[] nums) {
         Set<Integer> set = new HashSet<>();
         
-        for (Integer num : nums){
+        for (int num : nums) {
             set.add(num);
         }
         
