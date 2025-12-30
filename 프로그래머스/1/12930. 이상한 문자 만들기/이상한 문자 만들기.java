@@ -1,24 +1,28 @@
 class Solution {
     public String solution(String s) {
-        String[] str = s.split(" ", -1);
-        StringBuilder answer = new StringBuilder();
-
-        for (int i = 0; i < str.length; i++) {
-            char[] ch = str[i].toCharArray();
-
-            for (int j = 0; j < ch.length; j++) {
-                if (j % 2 == 0) {
-                    answer.append(Character.toUpperCase(ch[j]));
+        String[] strArr = s.split(" ", -1);
+        
+        StringBuilder result = new StringBuilder();
+        
+        for (int i = 0; i < strArr.length; i++) {
+            StringBuilder sb = new StringBuilder();
+            char[] arr = strArr[i].toCharArray();
+            
+            for (int j = 0; j < arr.length; j++){
+                if (j % 2 == 0){
+                    sb.append(Character.toUpperCase(arr[j]));
                 } else {
-                    answer.append(Character.toLowerCase(ch[j]));
+                    sb.append(Character.toLowerCase(arr[j]));
                 }
             }
-
-            if (i < str.length - 1) {
-                answer.append(" ");
+            
+            result.append(sb.toString());
+            
+            if (i < strArr.length - 1){
+                result.append(" ");
             }
         }
-
-        return answer.toString();
+        
+        return result.toString();
     }
 }
