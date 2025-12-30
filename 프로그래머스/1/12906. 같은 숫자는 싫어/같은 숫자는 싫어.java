@@ -1,21 +1,22 @@
-import java.util.*;
+import java.util.Deque;
+import java.util.ArrayDeque;
 
 public class Solution {
     public int[] solution(int []arr) {
-        List<Integer> num = new ArrayList<>();
-        num.add(arr[0]);
+        Deque<Integer> stack = new ArrayDeque<>();
         
-        for (int i = 1; i < arr.length; i++){
-            if (arr[i] != arr[i - 1]){
-                num.add(arr[i]);
+        for (int num : arr){
+            if (stack.isEmpty() || stack.peek() != num){
+                stack.push(num);
             }
         }
-
-        int[] answer = new int[num.size()];
-        for (int i = 0; i < num.size(); i++){
-            answer[i] = num.get(i);
-        }
         
+        int[] answer = new int[stack.size()];
+        
+        for (int i = answer.length - 1; i >= 0; i--){
+            answer[i] = stack.pop();
+        }
+
         return answer;
     }
 }
