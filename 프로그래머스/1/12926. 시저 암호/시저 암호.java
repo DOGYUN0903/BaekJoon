@@ -1,31 +1,25 @@
 class Solution {
     public String solution(String s, int n) {
-        String answer = "";
+        StringBuilder sb = new StringBuilder();
         
-        for(int i = 0; i < s.length(); i++){
-            char c = s.charAt(i);
-            
-            if (c == ' '){
-                answer += c;
-            }
-            
-            else if (c >= 'A' && c <= 'Z'){
-                int move = c + n;
-                if(move > 'Z'){
-                    move = move - 26;
+        for (char c : s.toCharArray()) {
+            if (c == ' ') {
+                sb.append(c);
+            } else if (c >= 'a' && c <= 'z') {
+                char moved = (char) (c + n);
+                if (moved > 'z') {
+                    moved -= 26;
                 }
-                answer += (char) move;
-            }
-            
-            else if (c >= 'a' && c <= 'z'){
-                int move = c + n;
-                if (move > 'z'){
-                    move = move - 26;
+                sb.append(moved);
+            } else {
+                char moved = (char) (c + n);
+                if (moved > 'Z') {
+                    moved -= 26;
                 }
-                answer += (char) move;
+                sb.append(moved);
             }
         }
         
-        return answer;
+        return sb.toString();
     }
 }
