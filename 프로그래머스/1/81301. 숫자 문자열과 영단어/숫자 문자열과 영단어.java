@@ -1,11 +1,34 @@
+import java.util.Map;
+import java.util.HashMap;
+
 class Solution {
     public int solution(String s) {
-        String[] words = {"zero", "one", "two","three", "four", "five", "six", "seven", "eight", "nine"};
-        String[] wordNums = {"0","1","2","3","4","5","6","7","8","9"};
-        for(int i = 0; i < words.length; i++){
-            s = s.replace(words[i], wordNums[i]);
+        Map<String, String> map = new HashMap<>();
+        String[] words = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+        for (int i = 0; i < words.length; i++){
+            map.put(words[i], String.valueOf(i));
         }
         
-        return Integer.parseInt(s);
+        StringBuilder sb = new StringBuilder();
+        
+        for (int i = 0; i < s.length();){
+            boolean found = false;
+            
+            for (String word : map.keySet()) {
+                if (s.startsWith(word, i)) {
+                    sb.append(map.get(word));
+                    i += word.length();
+                    found = true;
+                    break;
+                }
+            }
+            
+            if (!found) {
+                sb.append(s.charAt(i));
+                i++;
+            }
+        }
+        
+        return Integer.parseInt(sb.toString());
     }
 }
