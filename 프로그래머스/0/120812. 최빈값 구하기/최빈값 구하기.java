@@ -1,26 +1,30 @@
+import java.util.Map;
+import java.util.HashMap;
+
 class Solution {
     public int solution(int[] array) {
-        int[] count = new int[1000];
+        int answer = 0;
+        Map<Integer, Integer> map = new HashMap<>();
         
         for (int num : array) {
-            count[num]++;
+            map.put(num, map.getOrDefault(num, 0) + 1);
         }
         
         int maxFreq = 0;
-        for (int freq : count) {
+        for (int freq : map.values()) {
             maxFreq = Math.max(maxFreq, freq);
         }
         
         int mode = -1;
-        int modeCount = 0;
+        int count = 0;
         
-        for (int i = 0; i < count.length; i++) {
-            if (count[i] == maxFreq) {
-                mode = i;
-                modeCount++;
+        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+            if (entry.getValue() == maxFreq) {
+                mode = entry.getKey();
+                count++;
             }
         }
         
-        return modeCount > 1 ? -1 : mode;
+        return count > 1 ? -1 : mode;
     }
 }
