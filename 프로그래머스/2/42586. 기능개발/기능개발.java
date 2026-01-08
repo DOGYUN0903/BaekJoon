@@ -1,32 +1,29 @@
-import java.util.Deque;
-import java.util.ArrayDeque;
 import java.util.List;
 import java.util.ArrayList;
 
 class Solution {
     public int[] solution(int[] progresses, int[] speeds) {
-        Deque<Integer> dq = new ArrayDeque<>();
+        int[] remainDay = new int[progresses.length];
         
-        for (int i = 0; i < progresses.length; i++){
-            int remain = 100 - progresses[i];
-            int days = (int) Math.ceil((double) remain / speeds[i]);
-            
-            dq.offer(days);
+        for (int i = 0; i < progresses.length; i++) {
+            remainDay[i] = (int) Math.ceil((double)(100 - progresses[i]) / speeds[i]);
         }
         
         List<Integer> result = new ArrayList<>();
+        int standard = remainDay[0];
+        int count = 1;
         
-        while(!dq.isEmpty()){
-            int firstDay = dq.poll();
-            int count = 1;
-            
-            while (!dq.isEmpty() && dq.peek() <= firstDay){
-                dq.poll();
+        for (int i = 1; i < remainDay.length; i++) {
+            if (remainDay[i] <= standard) {
                 count++;
+            } else {
+                result.add(count);
+                count = 1;
+                standard = remainDay[i];
             }
-            
-            result.add(count);
         }
+        
+        result.add(count);
         
         int[] answer = new int[result.size()];
         for (int i = 0; i < answer.length; i++){
