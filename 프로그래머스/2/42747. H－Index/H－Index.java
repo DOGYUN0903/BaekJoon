@@ -2,24 +2,23 @@ import java.util.Arrays;
 
 class Solution {
     public int solution(int[] citations) {
-        int[] arr = new int[citations.length];
         
         Arrays.sort(citations);
-        for (int i = 0; i < citations.length; i++){
-            arr[citations.length - 1 - i] = citations[i];
+        
+        int[] numbers = new int[citations.length];
+        
+        for (int i = 0; i < citations.length; i++) {
+            numbers[i] = citations[citations.length - i - 1];
         }
         
-        int maxH = 0;
-        for (int j = 0; j < arr.length; j++){
-            int h = j + 1;
-            
-            if(arr[j] >= h){
-                maxH = h;
-            } else {
-                break;
+        int answer = 0;
+        
+        for (int i = 0; i < numbers.length; i++){
+            if (numbers[i] < (i+1)) {
+                return i;
             }
-            
         }
-        return maxH;
+        
+        return numbers.length;
     }
 }
