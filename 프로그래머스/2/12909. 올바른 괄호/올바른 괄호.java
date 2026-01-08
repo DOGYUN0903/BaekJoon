@@ -5,21 +5,21 @@ class Solution {
     boolean solution(String s) {
         boolean answer = true;
 
-        char[] ch = s.toCharArray();
+        char[] cArr = s.toCharArray();
         
         Deque<Character> stack = new ArrayDeque<>();
-        for (char c : ch){
-            if (c == '('){
+        for (char c : cArr) {
+            if (c == '(') {
                 stack.push(c);
             } else {
-                if (stack.isEmpty()){
+                if (stack.isEmpty()) {
                     return false;
                 } else {
                     stack.pop();
                 }
             }
         }
-        
+
         return stack.isEmpty();
     }
 }
