@@ -3,8 +3,7 @@ import java.util.ArrayDeque;
 
 class Solution {
     boolean solution(String s) {
-        boolean answer = true;
-
+        
         char[] cArr = s.toCharArray();
         
         Deque<Character> stack = new ArrayDeque<>();
@@ -19,7 +18,7 @@ class Solution {
                 }
             }
         }
-
+        
         return stack.isEmpty();
     }
 }
