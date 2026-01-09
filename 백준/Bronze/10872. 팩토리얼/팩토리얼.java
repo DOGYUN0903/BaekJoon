@@ -5,11 +5,15 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
         int N = sc.nextInt();
-
-        int sum = 1;
-        for (int i = 1; i <= N; i++) {
-            sum *= i;
+        
+        System.out.println(factorial(N));
+    }
+    
+    private static int factorial(int n) {
+        if (n <= 1) {
+            return 1;
         }
-        System.out.println(sum);
+        
+        return n * factorial(n - 1);
     }
 }
