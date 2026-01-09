@@ -1,18 +1,33 @@
-import java.util.Arrays;
-
 class Solution {
-    public int solution(int[][] sizes) {
-        int maxWidth = 0;
-        int minWidth = 0;
+    public int solution(int[][] sizes) {        
+        int left = 0;
+        int right = 0;
+        int answer = 0;
+        int[][] resizes = new int[sizes.length][sizes[0].length];
         
-        for (int[] size : sizes){
-            int bigger = Math.max(size[0], size[1]);
-            int smaller = Math.min(size[0], size[1]);
-            
-            maxWidth = Math.max(maxWidth, bigger);
-            minWidth = Math.max(minWidth, smaller);            
+        for (int i = 0; i < sizes.length; i++) {
+            if (sizes[i][0] > sizes[i][1]) {
+                continue;
+            } else {
+                int temp = 0;
+                temp = sizes[i][0];
+                sizes[i][0] = sizes[i][1];
+                sizes[i][1] = temp;
+            }
         }
-
-        return maxWidth * minWidth;
+        
+        for (int i = 0; i < sizes.length; i++) {
+            if (right < sizes[i][0]) {
+                right = sizes[i][0];
+            }
+        }
+        
+        for (int i = 0; i < sizes.length; i++) {
+            if (left < sizes[i][1]) {
+                left = sizes[i][1];
+            }
+        }
+        
+        return right * left;
     }
 }
