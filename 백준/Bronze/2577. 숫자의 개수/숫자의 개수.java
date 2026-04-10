@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -6,22 +6,22 @@ public class Main {
         int A = sc.nextInt();
         int B = sc.nextInt();
         int C = sc.nextInt();
-        int sum = A*B*C;
-        int[] arr = new int[10];
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = 0;
+        
+        int sum = A * B * C;
+        
+        String numStr = String.valueOf(sum);
+        
+        char[] numArr = numStr.toCharArray();
+        
+        int[] count = new int[10];
+        
+        for (char c : numArr) {
+            int index = c - '0';
+            count[index]++;
         }
-        String num = String.valueOf(sum);
-        char[] ch = num.toCharArray();
-
-        for (int i = 0; i < ch.length; i++) {
-            int digit = ch[i] - '0'; 
-            arr[digit]++;             
+        
+        for (int i = 0; i < count.length; i++) {
+            System.out.println(count[i]);
         }
-
-        for (int i = 0; i < arr.length; i++) {
-            System.out.println(arr[i]);
-        }
-
     }
 }
